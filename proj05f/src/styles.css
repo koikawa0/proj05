@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+* {
+  font-family: "Geist", sans-serif;
+  font-size: 14pt;
+}
+
+body {
+  align-items: center;
+  background: url("fundo.jpg");
+  backdrop-filter: blur(3px);
+  color: #222;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  width: 100vw; 
+}

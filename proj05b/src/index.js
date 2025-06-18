@@ -8,18 +8,22 @@ const server = express()
 server.use(cors())
 server.use(express.json())
 
-server.get("/", function(req, res) {
-  res.json({message: "ROUTE / GET"})
-})
-
 server.get("/",  async function(req, res) {
   const results = await user.find()
   res.status(200).json(results)
 })
 
-server.post("/", function(req, res){
-  res.json({message: "ROUTE / POST"})
-})
+server.post("/", async function(req, res){
+  try  {
+    const newUser = new user(req.body)
+    const result = await newUser.save()
+    res.status(201).json(result)
+  }
+  catch(error) {
+    console.log(error.message)
+    answer.sendStatus(500)
+  }
+  })
 
 server.listen(4000, function(){
   console.log("SERVER IS RUNNING!")
